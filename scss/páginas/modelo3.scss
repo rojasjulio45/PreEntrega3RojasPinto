@@ -1,0 +1,135 @@
+// modelo3.scss
+
+// Importar variables y mixins
+@import '../_variables';
+@import '../_mixins';
+
+// Estilos específicos para la página del Modelo 3
+body {
+    background-color: $color-fondo-oscuro;
+    color: $color-texto-principal;
+    font-family: $fuente-principal;
+    line-height: 1.6;
+}
+
+header, footer {
+    background-color: $color-header-footer;
+    color: $color-texto-principal;
+}
+
+.modelo-detalles {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: rgba(69, 53, 53, 0.8); /* Fondo oscuro */
+    border-radius: 10px;
+    @include sombra(rgba(0, 0, 0, 0.1), 0px, 4px, 8px);
+}
+
+.modelo-image {
+    flex: 1 1 400px;
+    max-width: 500px;
+    border-radius: 10px;
+    @include sombra(rgba(0, 0, 0, 0.2), 0px, 4px, 8px);
+}
+
+.modelo-info {
+    flex: 2 1 400px;
+    padding: 20px;
+}
+
+.modelo-info h1 {
+    font-size: 2.5rem;
+    color: $color-boton-principal;
+    margin-bottom: 20px;
+}
+
+.modelo-info p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.modelo-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modelo-info ul li {
+    margin-bottom: 10px;
+}
+
+.modelo-info ul li strong {
+    color: $color-boton-principal;
+}
+
+.cta-button {
+    @include boton($color-boton-principal, black, $color-boton-hover);
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-social {
+    text-align: left;
+    flex: 1 1 200px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.footer-social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    background-color: #111;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+}
+
+// Media Queries para Responsividad
+@media (max-width: 768px) {
+    .modelo-detalles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modelo-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .modelo-info {
+        width: 100%;
+        padding: 0 20px;
+    }
+}

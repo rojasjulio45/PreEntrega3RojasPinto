@@ -1,0 +1,135 @@
+// vende-tu-auto.scss
+
+// Importar variables y mixins
+@import '../_variables';
+@import '../_mixins';
+
+// Estilos para la página "Vende tu Auto"
+body {
+    background-color: $color-fondo-oscuro;
+    color: $color-texto-principal;
+    font-family: $fuente-principal;
+    line-height: 1.6;
+    margin: 0;
+}
+
+header, footer {
+    background-color: $color-header-footer;
+    color: $color-texto-principal;
+    padding: 20px;
+    text-align: center;
+}
+
+.container, .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: $color-texto-principal;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: $color-boton-principal;
+}
+
+.vende-tu-auto {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(69, 53, 53, 0.8);
+    border-radius: 10px;
+    @include sombra(rgba(0, 0, 0, 0.2), 0px, 4px, 8px);
+    text-align: center;
+}
+
+.vende-tu-auto h1 {
+    font-size: 2.5rem;
+    color: $color-boton-principal;
+    margin-bottom: 20px;
+}
+
+.auto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: $color-boton-principal;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: $color-boton-hover;
+}
+
+.footer-about, .footer-links, .footer-contact, .footer-social {
+    text-align: left;
+    flex: 1 1 200px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.footer-social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    background-color: #111;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    text-align: center;
+}

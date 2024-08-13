@@ -1,0 +1,24 @@
+// _base.scss
+
+// Reset CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  // Estilos globales
+  body {
+    font-family: $fuente-principal;
+    background-color: $color-fondo-oscuro;
+    color: $color-texto-principal;
+    line-height: 1.6;
+  }
+  
+  header, footer {
+    background-color: $color-header-footer;
+    color: $color-texto-principal;
+    padding: 20px;
+    text-align: center;
+  }
+  
