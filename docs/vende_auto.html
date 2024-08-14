@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vende tu Auto | Autojoven</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/vende-tu-auto.css">
+</head>
+<body>
+    <header id="inicio">
+        <div class="container">
+            <div class="logo-text">
+                <img src="../img/logo.png" alt="Autojoven" class="logo">
+                <p class="header-text"> Describe tu auto, lo valorizamos y publicamos en el portal !</p>
+            </div>
+            <nav class="nav-container">
+                <ul class="nav">
+                    <li class="nav-item"><a href="index.html#inicio" class="nav-link">Volver al Inicio</a></li>
+                    <li class="nav-item"><a href="index.html#modelos" class="nav-link">Modelos</a></li>
+                    <li class="nav-item"><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                    <li class="nav-item"><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                    <li class="nav-item btn-vende-auto-item"><a href="vende_auto.html" class="nav-link">Vende tu auto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="vende-tu-auto">
+            <h1>Vende tu Auto con Autojoven</h1>
+            <p>¿Estás buscando vender tu auto? En Autojoven, te ofrecemos una plataforma fácil y rápida para vender tu vehículo. Completa el siguiente formulario con la información de tu auto y nos pondremos en contacto contigo.</p>
+            
+            <form action="submit_form.php" method="post" class="auto-form">
+                <div class="form-group">
+                    <label for="make">Marca:</label>
+                    <input type="text" id="make" name="make" required>
+                </div>
+                <div class="form-group">
+                    <label for="model">Modelo:</label>
+                    <input type="text" id="model" name="model" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Año:</label>
+                    <input type="number" id="year" name="year" required>
+                </div>
+                <div class="form-group">
+                    <label for="mileage">Kilometraje:</label>
+                    <input type="number" id="mileage" name="mileage" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Precio Deseado:</label>
+                    <input type="number" id="price" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Información de Contacto:</label>
+                    <input type="text" id="contact" name="contact" required>
+                </div>
+                <button type="submit" class="cta-button">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una concesionaria comprometida con ofrecer los mejores vehículos seminuevos y servicios a nuestros clientes.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html#inicio">Volver al Inicio</a></li>
+                    <li><a href="index.html#modelos">Modelos</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p>Email: contacto@autojoven.com</p>
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Dirección: Calle Falsa 123, Ciudad</p>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="footer-social-icons">
+                    <a href="#"><img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="../img/linkedin.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Autojoven. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
