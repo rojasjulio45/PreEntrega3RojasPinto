@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # Autojoven-Project
-Autojoven venta de autos
-=======
-# auto_joven_entrega3
-pre-entrega3
->>>>>>> d925bfc (Initial commit)
+
+Autojoven venta de autos.
+
+Proyecto de la pre-entrega 3 (auto_joven_entrega3).
