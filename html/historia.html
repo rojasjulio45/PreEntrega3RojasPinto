@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autojoven · Historia</title>
+<style>
+/* Plantilla: composición vertical 1080x1920. Cambia --W/--H y data-width/height para 1920x1080. */
+:root {
+  --ink: #111614; --muted: #6b746f; --line: #d9e0db; --card: #fff;
+  --green: #22c55e; --red: #e5383b; --night: #050806;
+  --ui: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #0d0f0e; }
+body { display: grid; place-items: center; overflow: hidden; }
+
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; transform-origin: 0 0; font-family: var(--ui); color: var(--ink);
+  background: radial-gradient(60% 30% at 10% 12%, #fbeab0, transparent 70%), radial-gradient(70% 30% at 92% 90%, #f9e39a, transparent 70%), #fffbef; }
+.blob { position: absolute; border-radius: 50%; filter: blur(60px); background: #f7dc7a; opacity: .55; }
+.scene { position: absolute; inset: 0; }
+.card { background: var(--card); border-radius: 22px; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 24px 50px -16px rgba(20,50,35,.28); }
+.w { display: inline-block; }
+
+/* Escena 1 */
+.headline { position: absolute; left: 60px; right: 60px; top: 640px; text-align: center; font-size: 96px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.1; }
+.cal { display: inline-grid; grid-template-rows: .3em 1fr; width: .95em; height: 1em; vertical-align: top; margin-top: .05em; border-radius: .18em; overflow: hidden; background: #fff; box-shadow: 0 .08em .25em rgba(0,0,0,.15); }
+.cal b { background: var(--red); color: #fff; font-size: .18em; display: grid; place-items: center; letter-spacing: .08em; }
+.cal i { font-style: normal; font-size: .45em; font-weight: 600; display: grid; place-items: center; }
+.event { position: absolute; left: 140px; top: 900px; width: 800px; padding: 32px 36px; display: flex; gap: 28px; align-items: center; font-size: 100px; }
+.event small { display: block; color: var(--green); font-weight: 600; font-size: 24px; }
+.event h3 { margin: 0; font-size: 44px; letter-spacing: -0.02em; }
+.event p { margin: 0; color: var(--muted); font-size: 26px; }
+
+/* Escena 2 */
+.check { position: absolute; left: 200px; top: 560px; width: 680px; height: 630px; padding: 40px; }
+.check h3 { margin: 0; font-size: 44px; letter-spacing: -0.02em; }
+.count { color: var(--muted); font-size: 24px; }
+.items { position: absolute; left: 40px; right: 40px; top: 150px; list-style: none; margin: 0; padding: 0; }
+.items li { height: 90px; display: flex; align-items: center; gap: 22px; font-size: 32px; font-weight: 500; }
+.box { width: 32px; height: 32px; border-radius: 50%; border: 3px solid #c8cfca; display: grid; place-items: center; position: relative; flex: none; }
+.box .fill { position: absolute; inset: -3px; border-radius: 50%; background: var(--green); transform: scale(0); }
+.box svg { position: relative; width: 18px; height: 18px; opacity: 0; }
+.falta { margin-left: auto; background: #fde4e4; color: var(--red); font-size: 22px; font-weight: 700; padding: 6px 16px; border-radius: 99px; opacity: 0; }
+.cursor { position: absolute; left: 0; top: 0; width: 44px; height: 44px; z-index: 20; filter: drop-shadow(0 3px 4px rgba(0,0,0,.3)); }
+
+/* Escena 3 */
+.end { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; color: #fff;
+  background: radial-gradient(60% 35% at 10% 105%, #b98c00, transparent 70%), radial-gradient(45% 30% at 95% -5%, #6b5200, transparent 70%), var(--night); }
+.end h2 { color: #f4c20d; margin: 0; font-size: 130px; font-weight: 500; letter-spacing: -0.035em; }
+.end p { margin: 16px 0 0; color: #8fa596; font-size: 30px; }
+
+/* Controles de vista previa (se ocultan al renderizar) */
+#controls { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 99px; background: rgba(20,22,21,.85); color: #fff; font: 13px var(--ui); z-index: 100; }
+#controls button { font: 600 13px var(--ui); background: #fff; color: #111; border: 0; border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+#controls input { width: min(50vw, 360px); accent-color: var(--green); }
+#controls span { font-variant-numeric: tabular-nums; min-width: 4.5em; }
+.rendering #controls { display: none; }
+</style>
+</head>
+<body>
+
+<div id="stage" data-composition-id="autojoven" data-start="0" data-width="1080" data-height="1920">
+  <div class="blob" id="b1" style="left:-120px;top:-80px;width:620px;height:520px"></div>
+  <div class="blob" id="b2" style="right:-100px;bottom:-120px;width:680px;height:560px"></div>
+
+  <!-- 1 · Planteo -->
+  <div class="scene" id="s1">
+    <div class="headline" id="t1"><span class="w">Sofía</span> <span class="w">quiere</span> <span class="w">su</span> <span class="w">primer</span> <span class="w"><span class="cal"><b>AUTO</b><i>🚗</i></span></span> <span class="w">auto.</span></div>
+    <div class="event card" id="evento">
+      <span class="cal"><b>SÁB</b><i>17</i></span>
+      <div><small>Sábado · 11:00</small><h3>Test drive en Autojoven</h3><p>Seminuevo · revisado y garantizado</p></div>
+    </div>
+  </div>
+
+  <!-- 2 · Acumulación + grieta -->
+  <div class="scene" id="s2">
+    <div class="check card" id="check">
+      <h3>Para comprarlo</h3>
+      <div class="count" id="count">0 de 5 listos</div>
+      <ul class="items" id="items"></ul>
+    </div>
+  </div>
+
+  <!-- 3 · Remate -->
+  <div class="scene" id="s3">
+    <div class="end"><div><h2 id="remate">Sí llega.</h2><p id="sub">Financiamiento Autojoven · autos seminuevos</p></div></div>
+  </div>
+
+  <svg class="cursor" id="cursor" viewBox="0 0 24 24"><path d="M3 2l16 9.5-7 1.5 4 8-3 1.5-4-8L3 20z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</div>
+
+<div id="controls"><button id="play">Pausa</button><button id="restart">Reiniciar</button><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Tiempo"><span id="time">0.0 s</span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script>
+// ---------- Ayudas ----------
+const $ = s => document.querySelector(s);
+const BLUR = "blur(16px)", SHARP = "blur(0px)";
+const tl = gsap.timeline({ paused: true });
+const enter = (tl, el, at, o = {}) => tl.fromTo(el, { opacity: 0, y: 30, filter: BLUR, ...o.from }, { opacity: 1, y: 0, filter: SHARP, duration: .7, ease: "power3.out", ...o.to }, at);
+const leave = (tl, el, at) => tl.to(el, { opacity: 0, scale: .96, filter: BLUR, duration: .45, ease: "power2.in" }, at);
+const words = (sel, at, stagger = .14) => tl.fromTo(`${sel} .w`, { opacity: 0, y: 22, filter: BLUR }, { opacity: 1, y: 0, filter: SHARP, duration: .6, stagger, ease: "power3.out" }, at);
+
+// ---------- Datos ----------
+const ITEMS = ["Licencia", "Ahorro inicial", "Modelo elegido", "Seguro", "Financiamiento"];
+const LIST_TOP = 560 + 150, ROW = 90, BOX_X = 200 + 40 + 16;   // posiciones del layout, en px del escenario
+const yItem = i => LIST_TOP + i * ROW + ROW / 2;
+const tick = '<svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$("#items").innerHTML = ITEMS.map((t, i) => `<li><span class="box"><span class="fill"></span>${i < ITEMS.length - 1 ? tick : ""}</span>${t}${i === ITEMS.length - 1 ? '<span class="falta" id="falta">Falta</span>' : ""}</li>`).join("");
+
+// ---------- Línea de tiempo (todo movimiento vive aquí) ----------
+const DUR = 10.5;
+gsap.set(["#s2", "#s3", "#cursor"], { opacity: 0 });
+tl.fromTo("#b1", { x: 0, y: 0 }, { x: 90, y: 70, duration: DUR, ease: "sine.inOut" }, 0);
+tl.fromTo("#b2", { x: 0, y: 0 }, { x: -80, y: -60, duration: DUR, ease: "sine.inOut" }, 0);
+
+// 1 · Planteo (0–3.4 s)
+words("#t1", .2);
+tl.to("#t1", { y: -120, duration: .6, ease: "power3.inOut" }, 1.6);
+enter(tl, "#evento", 1.8, { from: { y: 60 } });
+leave(tl, "#s1", 3.0);
+
+// 2 · Checklist (3.4–7.9 s)
+tl.set("#s2", { opacity: 1 }, 3.4);
+enter(tl, "#check", 3.4);
+tl.fromTo("#cursor", { opacity: 0, x: 900, y: 1500 }, { opacity: 1, x: BOX_X, y: yItem(0), duration: .6, ease: "power2.inOut" }, 3.8);
+const fills = gsap.utils.toArray("#items .fill"), ticks = gsap.utils.toArray("#items svg"), c = { n: 0 };
+for (let i = 0; i < ITEMS.length - 1; i++) {
+  const t = 4.4 + i * .55;
+  if (i) tl.to("#cursor", { y: yItem(i), duration: .35, ease: "power2.inOut" }, t - .35);
+  tl.to("#cursor", { scale: .82, duration: .08, yoyo: true, repeat: 1 }, t)
+    .to(fills[i], { scale: 1, duration: .28, ease: "back.out(2.5)" }, t + .05)
+    .to(ticks[i], { opacity: 1, duration: .15 }, t + .15)
+    .to(c, { n: i + 1, duration: .01, onUpdate: () => $("#count").textContent = `${Math.round(c.n)} de ${ITEMS.length} listos` }, t + .1);
+}
+tl.to("#cursor", { y: yItem(ITEMS.length - 1), duration: .35, ease: "power2.inOut" }, 6.25);
+tl.fromTo("#falta", { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .3, ease: "back.out(2)" }, 6.7);
+tl.to("#cursor", { opacity: 0, duration: .3 }, 7.1);
+leave(tl, "#s2", 7.5);
+
+// 3 · Remate (7.9 s – fin)
+tl.to("#s3", { opacity: 1, duration: .3 }, 7.9);
+tl.fromTo("#remate", { opacity: 0, scale: 1.06, filter: BLUR }, { opacity: 1, scale: 1, filter: SHARP, duration: .8, ease: "power3.out" }, 8.1);
+tl.fromTo("#sub", { opacity: 0 }, { opacity: 1, duration: .5 }, 8.8);
+tl.set({}, {}, DUR);
+
+// Registro HyperFrames: el renderizador adelanta esta línea de tiempo cuadro por cuadro.
+window.__timelines = window.__timelines || {};
+window.__timelines.autojoven = tl;
+
+// ---------- Vista previa (no afecta al render) ----------
+const rendering = navigator.webdriver || new URLSearchParams(location.search).has("render");
+const stage = $("#stage");
+if (rendering) {
+  document.documentElement.classList.add("rendering");
+  document.body.style.cssText = "display:block;background:none";
+} else {
+  const fit = () => {
+    const s = Math.min(innerWidth / 1080, (innerHeight - 70) / 1920);
+    stage.style.transform = `scale(${s})`;
+    stage.style.margin = `0 ${1080 * s - 1080}px ${1920 * s - 1920 + 60}px 0`;
+  };
+  addEventListener("resize", fit); fit();
+  const play = $("#play"), scrub = $("#scrub"), time = $("#time");
+  const set = on => { on ? tl.play() : tl.pause(); play.textContent = on ? "Pausa" : "Reproducir"; };
+  tl.eventCallback("onUpdate", () => { scrub.value = Math.round(tl.progress() * 1000); time.textContent = `${tl.time().toFixed(1)} s`; });
+  tl.eventCallback("onComplete", () => set(false));
+  play.onclick = () => { if (tl.progress() === 1) tl.restart(); set(tl.paused()); };
+  $("#restart").onclick = () => { tl.restart(); set(true); };
+  scrub.oninput = () => { set(false); tl.progress(scrub.value / 1000); };
+  set(!matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (tl.paused()) tl.time(2.9);
+}
+</script>
+</body>
+</html>
