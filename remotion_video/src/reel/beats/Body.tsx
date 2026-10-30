@@ -10,7 +10,7 @@ export const Ley: React.FC = () => {
   const c = (s: string) => cue("ley", s);
   const tLey = c("ley 21.430");
   const tReemplazan = c("reemplazan");
-  const tOpd = c("opd");
+  const tOpd = c("protección de derechos");
   const up = tween(frame, tReemplazan - 4, 10);
   const sh = shake(frame, tLey + 4, 20);
   return (

@@ -74,7 +74,7 @@ export const HookInstagram: React.FC = () => {
   const tRiesgo = c("riesgo");
   const tOficina = c("esta oficina");
   const tPrimero = c("primero");
-  const tOln = c("oln");
+  const tOln = c("oficina local");
   const drop = enter(frame, tOficina, 220);
   const kidMove = tween(frame, tOficina - 6, 12);
   const sh = shake(frame, tOficina + 6, 30, 14);

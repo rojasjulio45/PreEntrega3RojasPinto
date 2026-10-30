@@ -13,18 +13,18 @@ export const NARRATION = {
     "Hasta *300* casos por cada profesional. Así trabaja la oficina que protege a los niños de *tu comuna*.",
   // Instagram: if-you/situation hook, viewer as protagonist, claim lands by 1.5 s.
   hookInstagram:
-    "Si un niño de *tu comuna* está en riesgo, esta oficina debe actuar primero. Se llama *OLN*.",
-  ley: "Nacieron con la *Ley 21.430*, de 2022, y reemplazan a las antiguas *OPD*.",
-  mision: "Su misión: *promover* derechos, *prevenir* y *proteger*.",
+    "Si un niño de *tu comuna* está en riesgo, esta oficina debe actuar primero. Se llama *Oficina Local de la Niñez*.",
+  ley: "Nacieron con la *Ley 21.430*, de 2022, y reemplazan a las antiguas *Oficinas de Protección de Derechos*.",
+  mision: "Su misión es *promover* derechos, *prevenir* y *proteger*.",
   puertas:
-    "Un caso llega por *tres puertas*: la *familia*, una *alerta* del colegio o del consultorio, o un *tribunal*.",
+    "Los casos a atender llegan por *tres puertas*: la *familia*, una *alerta* del colegio o del consultorio, o un *tribunal*.",
   // At comuna level, health means the consultorio (CESFAM, primary care), not a hospital.
   proceso:
-    "Un *gestor de casos* evalúa, arma un *plan* con la familia y la conecta con el *consultorio*, el colegio y apoyo social.",
-  grave: "Si es *grave*, deriva a *Protección Especializada* o al *tribunal de familia*.",
+    "Luego, un *gestor de casos* evalúa, arma un *plan* con la familia y la conecta con el *consultorio*, el colegio y apoyo social.",
+  grave: "Si el caso es *grave*, deriva a *Protección Especializada* o al *tribunal de familia*.",
   reto: "El reto: cubrir las *346 comunas* a más tardar en *2027*, con gestores que en algunas comunas cargan *300 casos*.",
   // LinkedIn closes with a specific question (+3% vs. opening with one).
-  ctaLinkedIn: "¿En tu comuna ya funciona la OLN? Te leo en *comentarios*.",
+  ctaLinkedIn: "¿En tu comuna ya funciona la Oficina Local de la Niñez? Te leo en *comentarios*.",
   ctaInstagram: "*Guárdalo* y compártelo con alguien que trabaje con niños.",
 } as const;
 

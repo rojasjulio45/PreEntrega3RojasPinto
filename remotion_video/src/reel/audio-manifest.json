@@ -1,11 +1,11 @@
 {
   "hookLinkedIn": {
     "file": "reel/narration/hookLinkedIn.mp3",
-    "durationInSeconds": 6.06
+    "durationInSeconds": 6.243
   },
   "hookInstagram": {
     "file": "reel/narration/hookInstagram.mp3",
-    "durationInSeconds": 8.124
+    "durationInSeconds": 7.236
   },
   "ley": {
     "file": "reel/narration/ley.mp3",
@@ -13,19 +13,19 @@
   },
   "mision": {
     "file": "reel/narration/mision.mp3",
-    "durationInSeconds": 3.971
+    "durationInSeconds": 4.258
   },
   "puertas": {
     "file": "reel/narration/puertas.mp3",
-    "durationInSeconds": 8.202
+    "durationInSeconds": 7.367
   },
   "proceso": {
     "file": "reel/narration/proceso.mp3",
-    "durationInSeconds": 6.713
+    "durationInSeconds": 6.896
   },
   "grave": {
     "file": "reel/narration/grave.mp3",
-    "durationInSeconds": 5.042
+    "durationInSeconds": 4.885
   },
   "reto": {
     "file": "reel/narration/reto.mp3",
@@ -33,7 +33,7 @@
   },
   "ctaLinkedIn": {
     "file": "reel/narration/ctaLinkedIn.mp3",
-    "durationInSeconds": 5.564
+    "durationInSeconds": 3.709
   },
   "ctaInstagram": {
     "file": "reel/narration/ctaInstagram.mp3",

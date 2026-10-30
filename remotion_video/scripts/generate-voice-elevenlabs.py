@@ -18,33 +18,37 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 VOICE = "cgSgspJ2msm6clMCkdW9"  # Jessica
 PERFORMANCE = {
-    "hookLinkedIn": "[excited] ¡Hasta 300 casos por cada profesional! [curious] Así trabaja la oficina que protege a los niños de... ¡tu comuna!",
-    "hookInstagram": "[curious] Si un niño de tu comuna está en riesgo... ¿esta oficina? [excited] ¡Debe actuar primero! Se llama... ¡o-ele-ene!",
-    "ley": "[excited] Nacieron con la Ley veintiún mil cuatrocientos treinta, de 2022, [playfully] ¡y reemplazan a las antiguas o-pe-de!",
-    "mision": "[confident] Su misión: ¡promover derechos, prevenir... y proteger!",
-    "puertas": "[curious] Un caso llega por... ¡tres puertas! [excited] La familia, una alerta del colegio o del consultorio... ¡o un tribunal!",
-    "proceso": "[warm] Un gestor de casos evalúa, arma un plan con la familia... [excited] ¡y la conecta con el consultorio, el colegio y apoyo social!",
-    "grave": "[serious] ¿Si es grave? Deriva a Protección Especializada... o al tribunal de familia.",
-    "reto": "[determined] El reto: ¡cubrir las 346 comunas a más tardar en 2027! [sighs] Con gestores que en algunas comunas cargan... ¡300 casos!",
-    "ctaLinkedIn": "[curious] ¿En tu comuna ya funciona la o-ele-ene? [cheerful] ¡Te leo en comentarios!",
-    "ctaInstagram": "[excited] ¡Guárdalo! [warm] Y compártelo con alguien que trabaje con niños.",
+    # (text, stability): 0.5 = natural/even, 0.0 = creative/expressive
+    "hookLinkedIn": ("Hasta 300 casos por cada profesional. Así trabaja la oficina que protege a los niños de tu comuna.", 0.5),
+    "hookInstagram": ("[curious] Si un niño de tu comuna está en riesgo... esta oficina debe actuar primero. Se llama Oficina Local de la Niñez.", 0.0),
+    "ley": ("Nacieron con la Ley veintiún mil cuatrocientos treinta, de 2022, y reemplazan a las antiguas Oficinas de Protección de Derechos.", 0.5),
+    "mision": ("[confident] Su misión es promover derechos, prevenir... y proteger.", 0.0),
+    "puertas": ("Los casos a atender llegan por tres puertas: [excited] la familia, una alerta del colegio o del consultorio, ¡o un tribunal!", 0.0),
+    "proceso": ("Luego, un gestor de casos evalúa, arma un plan con la familia y la conecta con el consultorio, el colegio y apoyo social.", 0.5),
+    "grave": ("[serious] Si el caso es grave, deriva a Protección Especializada o al tribunal de familia.", 0.0),
+    "reto": ("[determined] El reto: ¡cubrir las 346 comunas a más tardar en 2027! [sighs] Con gestores que en algunas comunas cargan... ¡300 casos!", 0.0),
+    "ctaLinkedIn": ("[curious] ¿En tu comuna ya funciona la Oficina Local de la Niñez? [cheerful] ¡Te leo en comentarios!", 0.0),
+    "ctaInstagram": ("[excited] ¡Guárdalo! [warm] Y compártelo con alguien que trabaje con niños.", 0.0),
 }
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stability", type=float, default=0.0, help="v3: 0.0 creative, 0.5 natural, 1.0 robust")
+    parser.add_argument("beats", nargs="*", help="only regenerate these beats (default: all)")
     parser.add_argument("--tempo", type=float, default=1.2, help="speed-up without pitch change, keeps the reel under 60 s")
     args = parser.parse_args()
     out_dir = ROOT / "public/reel/narration"
     out_dir.mkdir(parents=True, exist_ok=True)
-    manifest = {}
-    for key, text in PERFORMANCE.items():
+    manifest_file = ROOT / "src/reel/audio-manifest.json"
+    manifest = json.loads(manifest_file.read_text()) if manifest_file.exists() else {}
+    for key, (text, stability) in PERFORMANCE.items():
+        if args.beats and key not in args.beats:
+            continue
         body = json.dumps({
             "text": text,
             "model_id": "eleven_v3",
             "language_code": "es",
-            "voice_settings": {"stability": args.stability},
+            "voice_settings": {"stability": stability},
         }).encode()
         req = urllib.request.Request(
             f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE}?output_format=mp3_44100_128",
@@ -64,7 +68,7 @@ def main() -> None:
             capture_output=True, text=True, check=True).stdout)
         manifest[key] = {"file": f"reel/narration/{key}.mp3", "durationInSeconds": round(duration, 3)}
         print(f"🎙  {key}: {duration:.2f} s")
-    (ROOT / "src/reel/audio-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    manifest_file.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
