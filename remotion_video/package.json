@@ -16,18 +16,26 @@
     "remotion": "4.0.539"
   },
   "devDependencies": {
+    "@iconify-json/fluent-emoji-flat": "^1.2.6",
     "@remotion/eslint-config-flat": "4.0.539",
     "@types/react": "19.2.7",
     "@types/web": "0.0.166",
+    "d3-geo": "^3.1.1",
     "eslint": "10.12.0",
     "prettier": "3.8.1",
-    "typescript": "5.9.3"
+    "topojson-client": "^3.1.0",
+    "typescript": "5.9.3",
+    "world-atlas": "^2.0.2"
   },
   "scripts": {
-    "dev": "remotion studio",
+    "dev": "node scripts/build-reel-audio.mjs && remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
+    "reel:assets": "node scripts/build-reel-assets.mjs",
+    "reel:audio": "node scripts/build-reel-audio.mjs",
+    "reel:voice": "node scripts/generate-tts.mjs --reel && node scripts/build-reel-audio.mjs",
+    "render:reels": "node scripts/build-reel-audio.mjs && remotion render src/index.ts ReelLinkedIn out/oln-reel-linkedin.mp4 && remotion render src/index.ts ReelInstagram out/oln-reel-instagram.mp4",
     "tts": "node scripts/generate-tts.mjs",
     "render": "remotion render src/index.ts OLNChile out/oln-chile.mp4"
   },
