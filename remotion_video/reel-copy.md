@@ -1,6 +1,6 @@
 # Reel OLN: textos para publicar
 
-Dos versiones del mismo reel vertical (1080×1920, ~52 s), firmadas por Julio Rojas, con la fuente de cada dato en letra chica al pie. Cambian el hook (primeros 7 s) y el cierre:
+Dos versiones del mismo reel vertical (1080×1920, 51–53 s, ~7 MB), narradas con voz femenina y firmadas por Julio Rojas, con la fuente de cada dato en letra chica al pie. Cambian el hook (primeros 7 s) y el cierre:
 
 | Archivo | Hook | Cierre | Skill y regla aplicada |
 |---|---|---|---|

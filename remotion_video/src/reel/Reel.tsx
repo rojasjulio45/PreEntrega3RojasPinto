@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Html5Audio, Series, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { R } from "./kit";
-import { BeatKey, VARIANTS, Variant, getBeatAudio, getBeatDuration, getVariantDuration } from "./script";
+import { BeatKey, HAS_VOICE, VARIANTS, Variant, getBeatDuration, getVariantDuration } from "./script";
 import { CtaInstagram, CtaLinkedIn } from "./beats/Ctas";
 import { HookInstagram, HookLinkedIn } from "./beats/Hooks";
 import { Grave, Ley, Mision, Proceso, Puertas, Reto } from "./beats/Body";
@@ -29,8 +29,6 @@ const ProgressBar: React.FC<{ total: number }> = ({ total }) => {
 
 export const Reel: React.FC<{ variant: Variant }> = ({ variant }) => {
   const total = getVariantDuration(variant);
-  // Music sits lower once there is a narration track to make room for.
-  const hasVoice = VARIANTS[variant].some((k) => getBeatAudio(k));
   return (
     <AbsoluteFill style={{ background: R.navy }}>
       <Series>
@@ -46,7 +44,7 @@ export const Reel: React.FC<{ variant: Variant }> = ({ variant }) => {
       <ProgressBar total={total} />
       <Html5Audio
         src={staticFile(`reel/bgm-${variant}.wav`)}
-        volume={(f) => interpolate(f, [0, total - 20, total], [1, 1, 0]) * (hasVoice ? 0.14 : 0.4)}
+        volume={(f) => interpolate(f, [0, total - 20, total], [1, 1, 0]) * (HAS_VOICE ? 0.14 : 0.4)}
       />
     </AbsoluteFill>
   );

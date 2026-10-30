@@ -23,11 +23,13 @@ Las dos versiones comparten el cuerpo y cambian el hook y el cierre. Los textos 
 
 ```bash
 npm run dev            # genera la música y abre Remotion Studio
-npm run render:reels   # exporta las dos versiones
-npm run reel:voice     # (opcional) voz con edge-tts + música re-ajustada
+npm run render:reels   # exporta las dos versiones y las comprime (~7 MB c/u)
+npm run reel:voice     # regenera la voz y ajusta la música a sus tiempos
 ```
 
-Con voz, el reel se ajusta a la duración real de cada frase. Verifica que siga bajo 60 s (Studio muestra la duración) y, si se pasa, sube la velocidad con `node scripts/generate-tts.mjs --reel --rate +20%`.
+**Voz:** la narración usa la voz neuronal Piper "claude" (español de México, femenina, licencia Apache 2.0), que funciona sin internet una vez descargada. `npm run reel:voice` necesita `pip install piper-tts` y ffmpeg; la primera vez descarga el modelo (63 MB) en `.voices/`, que no se sube a git. El diccionario `LEXICON` de `scripts/generate-voice.py` corrige cómo se leen las siglas y los números ("OLN" → "o ele ene", "21.430" → "veintiún mil cuatrocientos treinta").
+
+Con voz, cada escena dura lo que dura su frase y los subtítulos se ajustan a ella. Verifica que el reel siga bajo 60 s (Studio muestra la duración) y, si se pasa, usa `python3 scripts/generate-voice.py --speed 1.2`.
 
 Para cambiar un texto, edita `NARRATION` en `src/reel/script.ts`. Las palabras entre `*asteriscos*` salen destacadas en amarillo. Las animaciones usan `cue("escena", "palabra")` para aparecer cuando se dice esa palabra; si borras una que alguna escena usa, la vista previa te muestra cuál falta.
 

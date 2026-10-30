@@ -62,6 +62,8 @@ export type Word = { text: string; emphasis: boolean; start: number; end: number
 type ManifestEntry = { file: string; durationInSeconds: number };
 const manifest = audioManifest as Partial<Record<BeatKey, ManifestEntry>>;
 export const getBeatAudio = (key: BeatKey) => manifest[key];
+// With narration, effects and music step back so the voice stays clear.
+export const HAS_VOICE = Object.keys(manifest).length > 0;
 
 // Word-level timing. Without audio it is estimated from length plus pauses
 // at punctuation; with audio the same weights are stretched to its length.

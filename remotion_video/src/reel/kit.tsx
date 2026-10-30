@@ -11,7 +11,7 @@ import {
   useCurrentFrame,
 } from "remotion";
 import icons from "./assets/icons.json";
-import { BeatKey, REEL_FPS, Word, getWords } from "./script";
+import { BeatKey, HAS_VOICE, REEL_FPS, Word, getWords } from "./script";
 
 export const R = {
   navy: "#0b1b4d",
@@ -54,7 +54,7 @@ export type SfxName = "whoosh" | "pop" | "ding" | "thud" | "alarm" | "click";
 
 export const Sfx: React.FC<{ name: SfxName; at: number; volume?: number }> = ({ name, at, volume = 0.5 }) => (
   <Sequence from={Math.max(0, Math.round(at))} durationInFrames={40} layout="none" name={`sfx:${name}`}>
-    <Html5Audio src={staticFile(`reel/sfx/${name}.wav`)} volume={volume} />
+    <Html5Audio src={staticFile(`reel/sfx/${name}.wav`)} volume={volume * (HAS_VOICE ? 0.55 : 1)} />
   </Sequence>
 );
 
