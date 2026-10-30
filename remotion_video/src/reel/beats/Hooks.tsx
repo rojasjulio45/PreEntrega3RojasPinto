@@ -49,6 +49,7 @@ export const HookLinkedIn: React.FC = () => {
           transformOrigin: "540px 640px",
         }}
       >
+        <Chip text="HASTA" x={540} y={360} at={-6} size={64} bg={R.yellow} />
         <Counter to={300} x={540} y={600} size={400} at={0} duration={lock} />
         <Slam text="CASOS" x={540} y={850} size={150} at={8} sfx={null} />
         <Chip text="por profesional" x={540} y={1000} at={c("profesional")} size={60} bg={R.yellow} />

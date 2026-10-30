@@ -10,7 +10,7 @@ export const REEL_H = 1920;
 export const NARRATION = {
   // LinkedIn: number-first line (F7) + plain-language explainer (F15), no question opener.
   hookLinkedIn:
-    "*300* casos por cada profesional. Así trabaja la oficina que protege a los niños de *tu comuna*.",
+    "Hasta *300* casos por cada profesional. Así trabaja la oficina que protege a los niños de *tu comuna*.",
   // Instagram: if-you/situation hook, viewer as protagonist, claim lands by 1.5 s.
   hookInstagram:
     "Si un niño de *tu comuna* está en riesgo, esta oficina debe actuar primero. Se llama *OLN*.",
@@ -18,8 +18,9 @@ export const NARRATION = {
   mision: "Su misión: *promover* derechos, *prevenir* y *proteger*.",
   puertas:
     "Un caso llega por *tres puertas*: la *familia*, una *alerta* del colegio o del consultorio, o un *tribunal*.",
+  // At comuna level, health means the consultorio (CESFAM, primary care), not a hospital.
   proceso:
-    "Un *gestor de casos* evalúa, arma un *plan* con la familia y la conecta con salud, educación y apoyo social.",
+    "Un *gestor de casos* evalúa, arma un *plan* con la familia y la conecta con el *consultorio*, el colegio y apoyo social.",
   grave: "Si es *grave*, deriva a *Protección Especializada* o al *tribunal de familia*.",
   reto: "El reto: cubrir las *346 comunas* a más tardar en *2027*, con gestores que en algunas comunas cargan *300 casos*.",
   // LinkedIn closes with a specific question (+3% vs. opening with one).
@@ -28,6 +29,22 @@ export const NARRATION = {
 } as const;
 
 export type BeatKey = keyof typeof NARRATION;
+
+export const AUTHOR = "Julio Rojas";
+
+// Discreet per-beat source line under the author credit.
+export const SOURCES: Record<BeatKey, string> = {
+  hookLinkedIn: "Dato: OLN Los Ángeles · La Tribuna, 30/09/2026",
+  hookInstagram: "Ley 21.430 · BCN LeyChile",
+  ley: "Ley 21.430, publicada el 15/03/2022 · BCN LeyChile",
+  mision: "Ley 21.430 · Orientaciones técnicas OLN, Subsecretaría de la Niñez",
+  puertas: "Orientaciones técnicas OLN · Guía de instituciones NNA, 2025",
+  proceso: "Piloto OLN, Dipres · UNICEF Chile, Serie Protección Integral n.º 1",
+  grave: "Ley 21.430 · Servicio Nacional de Protección Especializada",
+  reto: "Ley 21.430, plazo de 5 años · La Tribuna, 30/09/2026",
+  ctaLinkedIn: "Fuentes: BCN · Subsecretaría de la Niñez · UNICEF Chile · Dipres · La Tribuna",
+  ctaInstagram: "Fuentes: BCN · Subsecretaría de la Niñez · UNICEF Chile · Dipres · La Tribuna",
+};
 
 export const VARIANTS = {
   linkedin: ["hookLinkedIn", "ley", "mision", "puertas", "proceso", "grave", "reto", "ctaLinkedIn"],

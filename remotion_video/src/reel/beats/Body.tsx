@@ -96,7 +96,7 @@ export const Puertas: React.FC = () => {
         );
       })}
       <Sticker name="school" x={440} y={1210} size={110} at={c("colegio")} />
-      <Sticker name="hospital" x={640} y={1210} size={110} at={c("consultorio")} />
+      <Sticker name="stethoscope" x={640} y={1210} size={110} at={c("consultorio")} />
     </BeatShell>
   );
 };
@@ -110,9 +110,9 @@ export const Proceso: React.FC = () => {
     { t: c("conecta"), x: 880, icon: "handshake", label: "CONECTA" },
   ] as const;
   const net = [
-    { t: c("salud"), x: 230, icon: "hospital" },
-    { t: c("educación"), x: 540, icon: "graduation-cap" },
-    { t: c("apoyo social"), x: 850, icon: "house-with-garden" },
+    { t: c("consultorio"), x: 230, icon: "stethoscope", label: "CONSULTORIO\n(CESFAM)" },
+    { t: c("colegio"), x: 540, icon: "school", label: "COLEGIO" },
+    { t: c("apoyo social"), x: 850, icon: "house-with-garden", label: "APOYO\nSOCIAL" },
   ] as const;
   const bar = interpolate(frame, [steps[0].t, steps[2].t], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
@@ -131,7 +131,8 @@ export const Proceso: React.FC = () => {
       {net.map((n) => (
         <React.Fragment key={n.icon}>
           <Arrow from={[880, 1000]} to={[n.x, 1090]} at={n.t - 4} color="rgba(255,255,255,0.8)" bend={40} />
-          <Sticker name={n.icon} x={n.x} y={1150} size={150} at={n.t} />
+          <Sticker name={n.icon} x={n.x} y={1120} size={140} at={n.t} />
+          <Chip text={n.label} x={n.x} y={1240} at={n.t + 2} size={34} bg={R.yellow} />
         </React.Fragment>
       ))}
     </BeatShell>

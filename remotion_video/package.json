@@ -35,9 +35,10 @@
     "reel:assets": "node scripts/build-reel-assets.mjs",
     "reel:audio": "node scripts/build-reel-audio.mjs",
     "reel:voice": "node scripts/generate-tts.mjs --reel && node scripts/build-reel-audio.mjs",
-    "render:reels": "node scripts/build-reel-audio.mjs && remotion render src/index.ts ReelLinkedIn out/oln-reel-linkedin.mp4 && remotion render src/index.ts ReelInstagram out/oln-reel-instagram.mp4",
+    "render:reels": "node scripts/build-reel-audio.mjs && remotion render src/index.ts ReelLinkedIn out/master-linkedin.mp4 --crf=14 && remotion render src/index.ts ReelInstagram out/master-instagram.mp4 --crf=14 && scripts/compress-reels.sh",
     "tts": "node scripts/generate-tts.mjs",
-    "render": "remotion render src/index.ts OLNChile out/oln-chile.mp4"
+    "render": "remotion render src/index.ts OLNChile out/oln-chile.mp4",
+    "compress:reels": "scripts/compress-reels.sh"
   },
   "allowScripts": {
     "esbuild": false

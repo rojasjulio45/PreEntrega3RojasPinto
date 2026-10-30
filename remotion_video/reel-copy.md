@@ -1,10 +1,10 @@
 # Reel OLN: textos para publicar
 
-Dos versiones del mismo reel vertical (1080×1920, ~51 s). Cambian el hook (primeros 7 s) y el cierre:
+Dos versiones del mismo reel vertical (1080×1920, ~52 s), firmadas por Julio Rojas, con la fuente de cada dato en letra chica al pie. Cambian el hook (primeros 7 s) y el cierre:
 
 | Archivo | Hook | Cierre | Skill y regla aplicada |
 |---|---|---|---|
-| `out/oln-reel-linkedin.mp4` | "300 casos por cada profesional…" | Pregunta: "¿En tu comuna ya funciona la OLN?" | `linkedin-post-writer`: abrir con número (F7, +34%), nunca con pregunta (−34%); explicación simple (F15, guardados); pregunta al cierre (+3%) |
+| `out/oln-reel-linkedin.mp4` | "Hasta 300 casos por cada profesional…" | Pregunta: "¿En tu comuna ya funciona la OLN?" | `linkedin-post-writer`: abrir con número (F7, +34%), nunca con pregunta (−34%); explicación simple (F15, guardados); pregunta al cierre (+3%) |
 | `out/oln-reel-instagram.mp4` | "Si un niño de tu comuna está en riesgo…" | "Guárdalo y compártelo…" | `viral-hook-writer` ("If you / situación"), `virality` (checklist de 8 puntos), `reel-scripter` (hook → contexto → valor → CTA) |
 
 Checklist de hook (`virality`) que cumplen las dos versiones:
@@ -21,7 +21,7 @@ Checklist de hook (`virality`) que cumplen las dos versiones:
 
 **Texto del post** (≈1.150 caracteres; el hook queda antes del "…ver más"):
 
-> 300 casos por cada gestor.
+> Hasta 300 casos por cada gestor.
 >
 > Esa es la carga estimada en la Oficina Local de la Niñez de Los Ángeles, según La Tribuna (septiembre 2026). Y es la mejor forma de entender por qué estas oficinas importan.
 >
@@ -31,7 +31,7 @@ Checklist de hook (`virality`) que cumplen las dos versiones:
 >
 > 1. Un caso llega por tres vías: la familia que pide ayuda, una alerta del colegio o del consultorio, o una derivación del tribunal de familia.
 > 2. Un gestor de casos evalúa y arma un Plan de Atención Familiar junto a la familia.
-> 3. Conecta a esa familia con salud, educación y apoyo social. Si hace falta, suma terapia familiar.
+> 3. Conecta a esa familia con el consultorio (CESFAM), el colegio y la red de apoyo social de la comuna. Si hace falta, suma terapia familiar.
 > 4. Si la vulneración es grave, deriva al Servicio de Protección Especializada o al tribunal.
 >
 > La ley dio cinco años para cubrir las 346 comunas del país: el plazo vence en 2027. El diseño está; que funcione depende de equipos con cargas que una persona pueda sostener.
@@ -48,8 +48,9 @@ Checklist de hook (`virality`) que cumplen las dos versiones:
 > Ley 21.430: https://www.bcn.cl/leychile/navegar?idNorma=1201605
 > Carga de casos en Los Ángeles: https://www.latribuna.cl/politica/2026/09/30/300-casos-por-gestor-oficina-local-de-la-ninez-reforzara-atencion-en-los-angeles.html
 > Ficha OLN (Ventanilla Única Social): https://www.ventanillaunicasocial.gob.cl/ficha/285/oficina-local-ninez
+> Derivación a CESFAM (UNICEF Chile, Serie Protección Integral n.º 1): https://www.unicef.org/chile/media/12356/file/Proteccio%CC%81n%20integral_serie_n_1_OLN_web.pdf.pdf
 
-**Portada sugerida:** "300 casos por profesional" (fondo azul marino, número en amarillo).
+**Portada sugerida:** "Hasta 300 casos por profesional" (fondo azul marino, número en amarillo).
 **Cuándo publicar** (`linkedin-post-writer`): martes a jueves, entre 7:30 y 9:00 (hora local).
 
 ---
@@ -61,7 +62,7 @@ Checklist de hook (`virality`) que cumplen las dos versiones:
 > Si un niño de tu comuna está en riesgo, ¿sabes quién debe actuar primero? 👀
 >
 > Se llaman Oficinas Locales de la Niñez (OLN) y nacieron con la Ley 21.430.
-> Reciben casos de familias, colegios, consultorios y tribunales, arman un plan con cada familia y la conectan con salud, educación y apoyo.
+> Reciben casos de familias, colegios, consultorios y tribunales, arman un plan con cada familia y la conectan con el consultorio (CESFAM), el colegio y la red de apoyo de la comuna.
 > La meta es que las 346 comunas tengan una a más tardar en 2027.
 >
 > Guárdalo y compártelo con alguien que trabaje con niños 💛
